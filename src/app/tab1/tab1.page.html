@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <!-- <a [routerLink]="['']">睿睿搜题</a> -->
+      睿睿搜题
+    </ion-title>
+
+    <ion-buttons slot="secondary">
+      <!-- <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button> -->
+      <ion-button (click)="resetBtnClicked()">
+        <ion-icon slot="icon-only" name="reload-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-dati></app-dati>
+</ion-content>

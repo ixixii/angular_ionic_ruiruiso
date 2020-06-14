@@ -1,0 +1,47 @@
+<!-- <p> -->
+  <!-- lishi works! -->
+  <!-- 功能开发中，敬请期待 -->
+<!-- </p> -->
+
+<!-- 瀑布流 -->
+<div *ngIf="datiArr.length == 0">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">没有内容</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</div>
+<!-- 题目卡片 -->
+<div *ngFor="let responseObj of datiArr; index as i;" style="position: relative;">
+  
+  <!-- <ion-icon style="display: inline-block;" name="close-outline"></ion-icon> -->
+  <!-- <ion-toggle></ion-toggle> -->
+  <ion-card color="{{colorArr[i%9]}}">
+    <ion-card-header>
+      <ion-card-title>题目{{datiArr.length - i}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <span [innerHTML]="datiArr[datiArr.length - 1 - i].ques"></span>
+    </ion-card-content>
+  </ion-card>
+  
+  
+  <ion-card color="{{colorArr[i%9]}}">
+    <!-- <ion-card-header>
+      <ion-card-title>答案：</ion-card-title>
+    </ion-card-header> -->
+  
+    <ion-card-content>
+      <span [innerHTML]="datiArr[datiArr.length - 1 - i].ans"></span>
+    </ion-card-content>
+  </ion-card>
+
+  <div style="position: absolute;right:28px;top:8px;z-index: 999999;"
+       (click)="deleteDatiFunc(datiArr.length - 1 - i)">
+    <!-- <ion-toggle color="{{colorArr[i%9]}}"></ion-toggle> -->
+    <ion-icon *ngIf="i!=4 && i!=1" name="close-outline" style="font-size:30px;color: white;"></ion-icon>
+    <ion-icon *ngIf="i==4 || i==1" name="close-outline" style="font-size:30px;color: black;"></ion-icon>
+    <!-- <ion-button color="light">X</ion-button> -->
+  </div>
+</div>

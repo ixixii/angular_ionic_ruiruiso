@@ -1,0 +1,39 @@
+<ion-item>
+  <ion-label position="floating">请输入题干中的关键字（不要带选项）</ion-label>
+  <ion-textarea rows="6" cols="20" 
+  clearOnEdit="true"
+  [(ngModel)]="queryStr"
+  placeholder="请输入..."></ion-textarea>
+</ion-item>
+
+<ion-button expand="block" (click)="searchBtnClicked()">{{searchBtnTitle}}</ion-button>
+
+
+<div *ngIf="responseObj.ans">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>题目</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <span [innerHTML]="responseObj.ques"></span>
+    </ion-card-content>
+  </ion-card>
+  
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>答案：</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <span [innerHTML]="responseObj.ans"></span>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<!-- ------------------ -->
+<ion-button expand="block"
+color="success"
+*ngIf="responseObj.ans"
+ (click)="resetBtnClicked()">清 空</ion-button>
